@@ -33,7 +33,13 @@ public class AltranLogger implements System.Logger {
     */
    @Override
    public boolean isLoggable(Level level) {
-      return true;
+      switch(level) {
+         case INFO:
+            return logger.isInfoEnabled();
+         case DEBUG:
+            return logger.isDebugEnabled();
+      }
+      return false;
    }
 
    /**
