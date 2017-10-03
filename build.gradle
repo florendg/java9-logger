@@ -1,3 +1,22 @@
 group 'com.altran.igjava'
 version '1.0-SNAPSHOT'
 
+subprojects {
+    afterEvaluate {
+
+        repositories {
+            mavenCentral()
+        }
+
+        compileJava {
+            inputs.property("moduleName", moduleName)
+            doFirst {
+                options.compilerArgs = [
+                        '--module-path', classpath.asPath,
+                ]
+                classpath = files()
+            }
+        }
+    }
+}
+

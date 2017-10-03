@@ -6,9 +6,6 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'application'
 
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     runtimeOnly project(':logger-impl')
@@ -18,15 +15,6 @@ ext.moduleName = 'com.altran.igjava.logger.app'
 
 mainClassName = "$moduleName/com.altran.igjava.logger.app.Main"
 
-compileJava {
-    inputs.property("moduleName",moduleName)
-    doFirst {
-        options.compilerArgs = [
-                '--module-path',classpath.asPath,
-        ]
-        classpath = files()
-    }
-}
 
 run {
     inputs.property("moduleName", moduleName)
