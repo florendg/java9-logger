@@ -38,8 +38,15 @@ public class AltranLogger implements System.Logger {
             return logger.isInfoEnabled();
          case DEBUG:
             return logger.isDebugEnabled();
+         case ERROR:
+            return logger.isErrorEnabled();
+         case WARNING:
+            return logger.isWarnEnabled();
+         case TRACE:
+            return logger.isTraceEnabled();
+         default:
+            return false;
       }
-      return false;
    }
 
    /**
@@ -57,8 +64,7 @@ public class AltranLogger implements System.Logger {
     */
    @Override
    public void log(Level level, String msg) {
-      logger.info(msg);
-
+      logger.log(org.apache.logging.log4j.Level.getLevel(level.getName()),msg);
    }
 
    /**
