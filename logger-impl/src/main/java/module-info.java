@@ -1,8 +1,10 @@
-module com.altran.igjava.logger.impl {
-   requires log4j.api;
+import dev.weirdduke.logger.impl.LoggerFinder;
+
+module dev.weirdduke.logger.impl {
+   requires org.apache.logging.log4j;
    //This is how you state a module implements a Service
    provides java.lang.System.LoggerFinder
-      with com.altran.igjava.logger.impl.LoggerFinder;
+      with LoggerFinder;
 
-   opens com.altran.igjava.logger.impl to junit;
+   opens dev.weirdduke.logger.impl to org.junit.jupiter;
 }

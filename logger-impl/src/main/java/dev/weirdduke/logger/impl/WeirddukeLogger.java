@@ -1,15 +1,15 @@
-package com.altran.igjava.logger.impl;
+package dev.weirdduke.logger.impl;
 
 import org.apache.logging.log4j.Logger;
 
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
-public class AltranLogger implements System.Logger {
+public class WeirddukeLogger implements System.Logger {
 
    private final Logger logger;
 
-   public AltranLogger(final Logger logger) {
+   public WeirddukeLogger(final Logger logger) {
       this.logger = logger;
    }
    /**
@@ -33,20 +33,14 @@ public class AltranLogger implements System.Logger {
     */
    @Override
    public boolean isLoggable(Level level) {
-      switch(level) {
-         case INFO:
-            return logger.isInfoEnabled();
-         case DEBUG:
-            return logger.isDebugEnabled();
-         case ERROR:
-            return logger.isErrorEnabled();
-         case WARNING:
-            return logger.isWarnEnabled();
-         case TRACE:
-            return logger.isTraceEnabled();
-         default:
-            return false;
-      }
+      return switch (level) {
+         case INFO -> logger.isInfoEnabled();
+         case DEBUG -> logger.isDebugEnabled();
+         case ERROR -> logger.isErrorEnabled();
+         case WARNING -> logger.isWarnEnabled();
+         case TRACE -> logger.isTraceEnabled();
+         default -> false;
+      };
    }
 
    /**
@@ -85,7 +79,7 @@ public class AltranLogger implements System.Logger {
     */
    @Override
    public void log(Level level, ResourceBundle bundle, String msg, Throwable thrown) {
-
+      throw new UnsupportedOperationException("Not implemented (Yet");
    }
 
    /**
@@ -108,6 +102,6 @@ public class AltranLogger implements System.Logger {
     */
    @Override
    public void log(Level level, ResourceBundle bundle, String format, Object... params) {
-
+      throw new UnsupportedOperationException("Not implemented (Yet)");
    }
 }

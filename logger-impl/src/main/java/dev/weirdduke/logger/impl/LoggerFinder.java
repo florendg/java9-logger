@@ -1,4 +1,4 @@
-package com.altran.igjava.logger.impl;
+package dev.weirdduke.logger.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,6 +25,6 @@ public class LoggerFinder extends System.LoggerFinder {
       final Logger logger = LogManager.getLogger(
          String.format("%s/%s",module,name));
 
-      return new AltranLogger(logger);
+      return new WeirddukeLogger(logger);
    }
 }

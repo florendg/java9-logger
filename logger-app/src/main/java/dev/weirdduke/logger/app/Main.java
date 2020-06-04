@@ -1,4 +1,4 @@
-package com.altran.igjava.logger.app;
+package dev.weirdduke.logger.app;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -38,7 +38,7 @@ public class Main extends Application{
     * @throws Exception if something goes wrong
     */
    @Override
-   public void start(Stage primaryStage) throws Exception {
+   public void start(Stage primaryStage)  {
 
       Button knop = new Button("Knop");
 

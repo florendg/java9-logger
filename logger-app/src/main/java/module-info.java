@@ -1,6 +1,6 @@
-module com.altran.igjava.logger.app {
+module dev.weirdduke.logger.app {
 
    requires javafx.controls;
    //required for javafx
-   exports com.altran.igjava.logger.app to javafx.graphics;
+   exports dev.weirdduke.logger.app to javafx.graphics;
 }
