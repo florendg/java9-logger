@@ -1,9 +1,6 @@
 plugins {
-    java
+    `java-library`
 }
-
-group="com.altran.igjava"
-version="1.0-SNAPSHOT"
 
 dependencies {
     implementation("org.apache.logging.log4j:log4j-api:2.13.3")

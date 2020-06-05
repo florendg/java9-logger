@@ -1,6 +1,7 @@
 package dev.weirdduke.logger.impl;
 
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.message.LocalizedMessage;
 
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
@@ -19,7 +20,7 @@ public class WeirddukeLogger implements System.Logger {
     */
    @Override
    public String getName() {
-      return null;
+      return WeirddukeLogger.class.getSimpleName();
    }
 
    /**
@@ -79,7 +80,8 @@ public class WeirddukeLogger implements System.Logger {
     */
    @Override
    public void log(Level level, ResourceBundle bundle, String msg, Throwable thrown) {
-      throw new UnsupportedOperationException("Not implemented (Yet");
+      LocalizedMessage message = new LocalizedMessage(bundle,msg);
+      logger.log(org.apache.logging.log4j.Level.getLevel(level.getName()),message.getFormattedMessage(),thrown);
    }
 
    /**
@@ -102,6 +104,7 @@ public class WeirddukeLogger implements System.Logger {
     */
    @Override
    public void log(Level level, ResourceBundle bundle, String format, Object... params) {
-      throw new UnsupportedOperationException("Not implemented (Yet)");
+      LocalizedMessage message = new LocalizedMessage(bundle,format,params);
+      logger.log(org.apache.logging.log4j.Level.getLevel(level.getName()),message.getFormattedMessage());
    }
 }
