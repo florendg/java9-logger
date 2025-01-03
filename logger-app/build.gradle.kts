@@ -1,10 +1,10 @@
 plugins {
     application
-    id("org.openjfx.javafxplugin") version "0.0.8"
+    id("org.openjfx.javafxplugin") version "0.0.13"
 }
 
 java {
-    version=JavaVersion.VERSION_14
+    version=JavaVersion.VERSION_23
     modularity.inferModulePath.set(true)
 }
 
@@ -18,6 +18,6 @@ application {
 }
 
 javafx {
-    version = "14"
+    version = "23"
     modules("javafx.controls")
 }

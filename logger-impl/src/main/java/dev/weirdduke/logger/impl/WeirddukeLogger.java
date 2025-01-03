@@ -35,12 +35,13 @@ public class WeirddukeLogger implements System.Logger {
    @Override
    public boolean isLoggable(Level level) {
       return switch (level) {
+         case OFF -> false;
          case INFO -> logger.isInfoEnabled();
          case DEBUG -> logger.isDebugEnabled();
          case ERROR -> logger.isErrorEnabled();
          case WARNING -> logger.isWarnEnabled();
          case TRACE -> logger.isTraceEnabled();
-         default -> false;
+         case ALL -> true;
       };
    }
 
